@@ -1,3 +1,4 @@
+// src/components/Login.js
 import React, { useState, useEffect } from "react";
 
 const Login = ({ users, setUser, goToRegister }) => {
@@ -13,7 +14,7 @@ const Login = ({ users, setUser, goToRegister }) => {
     }
 
     const foundUser = users.find(
-      u => u.username === username.trim() && u.password === password.trim()
+      (u) => u.username === username.trim() && u.password === password.trim()
     );
 
     if (foundUser) {
@@ -30,47 +31,12 @@ const Login = ({ users, setUser, goToRegister }) => {
   }, []);
 
   return (
-    <div
-      className={`login-card ${animate ? "show" : ""}`}
-      style={{
-        width: "400px",
-        borderRadius: "16px",
-        overflow: "hidden",
-        background: "#fff",
-        fontFamily: "Segoe UI, sans-serif"
-      }}
-    >
+    <div className={`login-card ${animate ? "show" : ""}`}>
       {/* 🌟 Animated Banner */}
-      <div
-        style={{
-          background: "linear-gradient(270deg, #6366f1, #8b5cf6, #ec4899)",
-          backgroundSize: "600% 600%",
-          color: "white",
-          textAlign: "center",
-          padding: "35px 20px",
-          fontSize: "26px",
-          fontWeight: "800",
-          letterSpacing: "1px",
-          textTransform: "uppercase",
-          position: "relative",
-          animation: "gradientShift 6s ease infinite"
-        }}
-      >
+      <div className="banner">
         <span style={{ fontSize: "30px", marginRight: "10px" }}>🚀</span>
         Fitness-Tracker
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-10px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "60px",
-            height: "6px",
-            background: "rgba(255,255,255,0.8)",
-            borderRadius: "3px",
-            animation: "pulse 2s infinite"
-          }}
-        ></div>
+        <div className="banner-line"></div>
       </div>
 
       {/* Login Section */}
@@ -82,14 +48,14 @@ const Login = ({ users, setUser, goToRegister }) => {
           className="input"
           placeholder="Username"
           value={username}
-          onChange={e => setUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <input
           className="input"
           type="password"
           placeholder="Password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <button className="button" onClick={handleLogin}>
@@ -107,36 +73,79 @@ const Login = ({ users, setUser, goToRegister }) => {
         </p>
       </div>
 
-      {/* 🔥 Keyframes & Animations */}
+      {/* 🔥 Keyframes & Styles */}
       <style>
         {`
-          /* Gradient banner animation */
-          @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+          body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           background: #1e293b url("https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=1350&q=80") 
+              no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', sans-serif;
+            position: relative;
           }
 
-          @keyframes pulse {
-            0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
-            50% { transform: translateX(-50%) scale(1.3); opacity: 1; }
-            100% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+          body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5); /* overlay for readability */
+            z-index: 0;
           }
 
-          /* ✨ Card Slide & Fade */
           .login-card {
+            width: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+            font-family: Segoe UI, sans-serif;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
             opacity: 0;
             transform: translateY(40px) scale(0.95);
             transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            z-index: 1;
+            position: relative;
           }
+
           .login-card.show {
             opacity: 1;
             transform: translateY(0) scale(1);
           }
 
+          .banner {
+            background: linear-gradient(270deg, #6366f1, #8b5cf6, #ec4899);
+            background-size: 600% 600%;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            animation: gradientShift 6s ease infinite;
+          }
+
+          .banner-line {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 6px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 3px;
+            animation: pulse 2s infinite;
+          }
+
           .input {
+            display: block;
             width: 100%;
+            box-sizing: border-box;
             padding: 12px;
             margin: 10px 0;
             border: 1px solid #ddd;
@@ -167,6 +176,19 @@ const Login = ({ users, setUser, goToRegister }) => {
           .button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+          }
+
+          /* animations */
+          @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+
+          @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+            50% { transform: translateX(-50%) scale(1.3); opacity: 1; }
+            100% { transform: translateX(-50%) scale(1); opacity: 0.9; }
           }
         `}
       </style>
