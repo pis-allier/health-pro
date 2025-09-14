@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Asha Sharma",
+    "specialty": "Cardiologist",
+    "hospital": "Apollo Hospital, Sector 21",
+    "phone": "+91-98-0000-1111",
+    "distance_km": 1.2
+  },
+  {
+    "id": 2,
+    "name": "Dr. Rajiv Menon",
+    "specialty": "General Physician",
+    "hospital": "CityCare Clinic",
+    "phone": "+91-98-0000-2222",
+    "distance_km": 2.8
+  },
+  {
+    "id": 3,
+    "name": "Dr. Neha Patel",
+    "specialty": "ER Specialist",
+    "hospital": "Mercy Hospital",
+    "phone": "+91-98-0000-3333",
+    "distance_km": 3.4
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "username": "Rakesh",
+    "password": "rakesh123",
+    "name": "Rakesh",
+    "gender": "male",
+    "age": 28,
+    "height": 175,
+    "weight": 70,
+    "bmi": 22.9,
+    "workouts": ["Push-ups", "Running", "Morning Yoga - 20 min",
+    "Cardio (Running) - 30 min",
+    "Strength Training - 40 min",
+    "HIIT Session - 25 min",
+    "Stretching & Cooldown - 15 min"],
+    "meals": ["Oatmeal", "Salad"],
+    "progress": [
+      { "day": "Mon", "weight": 70 },
+      { "day": "Tue", "weight": 69.8 },
+      { "day": "Wed", "weight": 69.5 }
+    ]
+  },
+  {
+    "id": 2,
+    "username": "jane",
+    "password": "jane123",
+    "name": "Jane Doe",
+    "gender": "female",
+    "age": 26,
+    "height": 165,
+    "weight": 60,
+    "bmi": 22,
+    "workouts": ["Yoga", "Cycling"],
+    "meals": ["Smoothie", "Grilled Chicken"],
+    "progress": [
+      { "day": "Mon", "weight": 60 },
+      { "day": "Tue", "weight": 59.8 },
+      { "day": "Wed", "weight": 59.5 }
+    ]
+  }
+]

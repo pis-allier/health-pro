@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Dashboard from "./components/Dashboard";
+import usersData from "./data/users.json"; // ✅ make sure this path is correct
+import "./App.css";
 
 function App() {
+  const [user, setUser] = useState(null);
+  const [showRegister, setShowRegister] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {!user ? (
+        <div className="center-screen">
+          {showRegister ? (
+            <Register
+              users={usersData}       // ✅ pass users correctly
+              setUser={setUser}
+              goToLogin={() => setShowRegister(false)}
+            />
+          ) : (
+            <Login
+              users={usersData}       // ✅ pass users correctly
+              setUser={setUser}
+              goToRegister={() => setShowRegister(true)}
+            />
+          )}
+        </div>
+      ) : (
+        <Dashboard user={user} logout={() => setUser(null)} />
+      )}
+    </>
   );
 }
 
