@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/health-pro/static/css/main.50d94efc.css",
+    "main.js": "/health-pro/static/js/main.8ff0b190.js",
+    "static/js/453.23cdc6b8.chunk.js": "/health-pro/static/js/453.23cdc6b8.chunk.js",
+    "index.html": "/health-pro/index.html",
+    "main.50d94efc.css.map": "/health-pro/static/css/main.50d94efc.css.map",
+    "main.8ff0b190.js.map": "/health-pro/static/js/main.8ff0b190.js.map",
+    "453.23cdc6b8.chunk.js.map": "/health-pro/static/js/453.23cdc6b8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50d94efc.css",
+    "static/js/main.8ff0b190.js"
+  ]
+}
